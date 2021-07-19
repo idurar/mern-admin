@@ -126,10 +126,7 @@ export default function Dashboard() {
       title: "Product Name",
       dataIndex: "productName",
     },
-    {
-      title: "Description",
-      dataIndex: "description",
-    },
+
     {
       title: "Price",
       dataIndex: "price",

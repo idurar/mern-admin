@@ -1,4 +1,5 @@
 backend/node_modules/
+frontend/node_modules/
 *.zip
 .DS_Store
 .idea

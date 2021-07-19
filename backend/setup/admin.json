@@ -1,0 +1,13 @@
+[
+   {
+      "removed": false,
+      "enabled": true,
+      "_id": "60b4e282eb314b0015faf2a9",
+      "email": "admin@demo.com",
+      "password": "$2a$10$CTVL4J/TW1mY0HNjrKc0RuR1eHMklmLL2hHiXoWPivjRKcRiJbgsy",
+      "name": "Demo",
+      "surname": "Admin",
+      "createdAt": "2021-05-31T13:20:02.250Z",
+      "__v": 0
+    }
+]

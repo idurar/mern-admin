@@ -1,0 +1,41 @@
+{
+  "name": "starter-crud-auth-api-express",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "prod": "node ./start.js",
+    "start": "nodemon ./start.js --ignore public/",
+    "production": "NODE_ENV=production",
+    "setup": "node -e 'require('./setup/load-sample-admin.js')'"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.4.0",
+    "dotenv": "4.0.0",
+    "es6-promisify": "5.0.0",
+    "express": "4.17.1",
+    "express-session": "^1.17.1",
+    "glob": "7.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  },
+  "description": "Just you wait folks!",
+  "main": "app.js",
+  "keywords": [],
+  "author": "Salah Eddine Lalami",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idurar/starter-antd-admin-crud-auth-mern.git"
+  },
+  "bugs": {
+    "url": "https://github.com/idurar/starter-antd-admin-crud-auth-mern/issues"
+  },
+  "homepage": "https://github.com/idurar/starter-antd-admin-crud-auth-mern#readme"
+}

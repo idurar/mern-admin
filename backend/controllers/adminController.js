@@ -275,9 +275,6 @@ exports.update = async (req, res) => {
         email: result.email,
         name: result.name,
         surname: result.surname,
-        photo: result.photo,
-        role: result.role,
-        employee: result.employee,
       },
       message: "we update this document by this id: " + req.params.id,
     });
@@ -336,9 +333,6 @@ exports.updatePassword = async (req, res) => {
         email: result.email,
         name: result.name,
         surname: result.surname,
-        photo: result.photo,
-        role: result.role,
-        employee: result.employee,
       },
       message: "we update the password by this id: " + req.params.id,
     });

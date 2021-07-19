@@ -159,13 +159,13 @@ exports.list = async (Model, req, res) => {
   const skip = page * limit - limit;
   try {
     //  Query the database for a list of all results
-    const resultsPromise = Model.find({ removed: false })
+    const resultsPromise = Model.find()
       .skip(skip)
       .limit(limit)
       .sort({ created: "desc" })
       .populate();
     // Counting the total documents
-    const countPromise = Model.count({ removed: false });
+    const countPromise = Model.count();
     // Resolving both promises
     const [result, count] = await Promise.all([resultsPromise, countPromise]);
     // Calculating total pages

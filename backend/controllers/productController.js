@@ -1,2 +1,2 @@
-const { crudController } = require("./crudController");
-module.exports = crudController("Product");
+const methods = require("./crudController");
+module.exports = methods.crudController("Product");

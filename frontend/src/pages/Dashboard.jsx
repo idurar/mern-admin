@@ -99,10 +99,6 @@ const PreviewState = ({ tag, color, value }) => {
 export default function Dashboard() {
   const leadColumns = [
     {
-      title: "Date",
-      dataIndex: "date",
-    },
-    {
       title: "Client",
       dataIndex: "client",
     },

@@ -7,7 +7,7 @@
 exports.read = async (Model, req, res) => {
   try {
     // Find document by id
-    const result = await Model.findOne({ _id: req.params.id, removed: false });
+    const result = await Model.findOne({ _id: req.params.id });
     // If no results found, return document not found
     if (!result) {
       return res.status(404).json({
@@ -80,7 +80,7 @@ exports.update = async (Model, req, res) => {
   try {
     // Find document by id and updates with the required fields
     const result = await Model.findOneAndUpdate(
-      { _id: req.params.id, removed: false },
+      { _id: req.params.id },
       req.body,
       {
         new: true, // return the new result instead of the old one

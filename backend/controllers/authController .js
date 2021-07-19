@@ -9,7 +9,7 @@ require("dotenv").config({ path: ".variables.env" });
 
 exports.register = async (req, res) => {
   try {
-    let { email, password, passwordCheck, name } = req.body;
+    let { email, password, passwordCheck, name, surname } = req.body;
 
     if (!email || !password || !passwordCheck)
       return res.status(400).json({ msg: "Not all fields have been entered." });
@@ -37,6 +37,7 @@ exports.register = async (req, res) => {
       email,
       password: passwordHash,
       name,
+      surname,
     });
     const savedAdmin = await newAdmin.save();
     res.status(200).send({

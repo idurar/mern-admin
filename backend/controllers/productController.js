@@ -1,2 +1,2 @@
 const { crudController } = require("./crudController");
-module.exports = crudController("Client");
+module.exports = crudController("Product");

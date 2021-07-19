@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 const clientSchema = new mongoose.Schema({
-  removed: {
-    type: Boolean,
-    default: false,
-  },
   enabled: {
     type: Boolean,
     default: true,
@@ -15,12 +11,12 @@ const clientSchema = new mongoose.Schema({
     trim: true,
     required: true,
   },
-  managerName: {
+  name: {
     type: String,
     trim: true,
     required: true,
   },
-  managerSurname: {
+  surname: {
     type: String,
     trim: true,
     required: true,
@@ -65,14 +61,6 @@ const clientSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-  },
-  fax: {
-    type: String,
-    trim: true,
-  },
-  cell: {
-    type: String,
-    trim: true,
   },
   email: {
     type: String,

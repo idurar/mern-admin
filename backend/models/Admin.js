@@ -12,7 +12,6 @@ const adminSchema = new Schema({
     type: Boolean,
     default: true,
   },
-
   email: {
     type: String,
     unique: true,
@@ -33,6 +32,9 @@ const adminSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  isLoggedIn: {
+    type: Boolean,
   },
 });
 

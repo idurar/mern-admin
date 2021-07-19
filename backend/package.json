@@ -20,7 +20,8 @@
     "express-session": "^1.17.1",
     "glob": "7.1.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.10"
+    "mongoose": "^5.9.10",
+    "mongoose-autopopulate": "^0.14.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"

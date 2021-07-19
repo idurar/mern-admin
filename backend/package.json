@@ -5,8 +5,8 @@
     "node": "14.x"
   },
   "scripts": {
-    "prod": "node ./start.js",
-    "start": "nodemon ./start.js --ignore public/",
+    "start": "node ./server.js",
+    "dev": "nodemon ./server.js --ignore public/",
     "production": "NODE_ENV=production",
     "sample": "node ./data/load-sample-admin.js"
   },

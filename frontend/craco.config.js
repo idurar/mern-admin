@@ -25,15 +25,7 @@ module.exports = {
       },
     },
   ],
-  // webpack: {
-  //   alias: {
-  //     "@": path.resolve(__dirname, "src/"),
-  //   },
-  //   output: {
-  //     publicPath: "/",
-  //     path: path.join(__dirname, "root"),
-  //   },
-  // },
+
   jest: {
     moduleNameMapper: {
       "^@/(.+)": "<rootDir>/src/$1",

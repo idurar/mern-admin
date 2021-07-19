@@ -7,12 +7,12 @@ function Customer() {
   const entity = "client";
   const searchConfig = {
     displayLabels: ["company"],
-    searchFields: "company,managerSurname,managerName",
+    searchFields: "company,surname,name",
     outputValue: "_id",
   };
 
   const panelTitle = "Customer Panel";
-  const dataTableTitle = "Patients Lists";
+  const dataTableTitle = "Customers Lists";
   const entityDisplayLabels = ["company"];
 
   const readColumns = [
@@ -22,11 +22,11 @@ function Customer() {
     },
     {
       title: "Manager Surname",
-      dataIndex: "managerSurname",
+      dataIndex: "surname",
     },
     {
       title: "Manager Name",
-      dataIndex: "managerName",
+      dataIndex: "name",
     },
     {
       title: "Email",
@@ -44,11 +44,11 @@ function Customer() {
     },
     {
       title: "Manager Surname",
-      dataIndex: "managerSurname",
+      dataIndex: "surname",
     },
     {
       title: "Manager Name",
-      dataIndex: "managerName",
+      dataIndex: "name",
     },
     {
       title: "Email",

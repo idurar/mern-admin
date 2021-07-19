@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  itemName: {
+  productName: {
     type: String,
     trim: true,
     required: true,
@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
+  },
+  status: {
+    type: String,
+    default: "available",
   },
 });
 

@@ -97,27 +97,48 @@ const PreviewState = ({ tag, color, value }) => {
   );
 };
 export default function Dashboard() {
-  const dataTableColumns = [
+  const leadColumns = [
     {
-      title: "N#",
-      dataIndex: "number",
+      title: "Date",
+      dataIndex: "date",
     },
     {
       title: "Client",
-      dataIndex: ["client", "company"],
+      dataIndex: "client",
     },
-
     {
-      title: "Total",
-      dataIndex: "total",
-
-      render: (total) => `$ ${total}`.replace(/\B(?=(\d{3})+(?!\d))/g, " "),
+      title: "phone",
+      dataIndex: "phone",
     },
     {
       title: "Status",
       dataIndex: "status",
       render: (status) => {
-        let color = status === "Draft" ? "volcano" : "green";
+        let color = status === "pending" ? "volcano" : "green";
+
+        return <Tag color={color}>{status.toUpperCase()}</Tag>;
+      },
+    },
+  ];
+
+  const productColumns = [
+    {
+      title: "Product Name",
+      dataIndex: "productName",
+    },
+    {
+      title: "Description",
+      dataIndex: "description",
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      render: (status) => {
+        let color = status === "available" ? "green" : "volcano";
 
         return <Tag color={color}>{status.toUpperCase()}</Tag>;
       },
@@ -128,13 +149,13 @@ export default function Dashboard() {
     <DashboardLayout>
       <Row gutter={[24, 24]}>
         <TopCard
-          title={"Invoice"}
+          title={"Leads"}
           tagColor={"cyan"}
           prefix={"This month"}
           tagContent={"34 000 $"}
         />
         <TopCard
-          title={"Quote"}
+          title={"Order"}
           tagColor={"purple"}
           prefix={"This month"}
           tagContent={"34 000 $"}
@@ -160,7 +181,7 @@ export default function Dashboard() {
               <Col className="gutter-row" span={8}>
                 <div className="pad15">
                   <h3 style={{ color: "#22075e", marginBottom: 15 }}>
-                    Invoice Preview
+                    Lead Preview
                   </h3>
                   <PreviewState tag={"Draft"} color={"grey"} value={3} />
                   <PreviewState tag={"Pending"} color={"bleu"} value={5} />
@@ -196,7 +217,7 @@ export default function Dashboard() {
                 {" "}
                 <div className="pad15">
                   <h3 style={{ color: "#22075e", marginBottom: 15 }}>
-                    Offer Preview
+                    Order Preview
                   </h3>
                   <PreviewState tag={"Draft"} color={"grey"} value={3} />
                   <PreviewState tag={"Pending"} color={"bleu"} value={5} />
@@ -245,14 +266,11 @@ export default function Dashboard() {
           <div className="whiteBox shadow">
             <div className="pad20">
               <h3 style={{ color: "#22075e", marginBottom: 5 }}>
-                Recent Invoices
+                Recent Leads
               </h3>
             </div>
 
-            <RecentTable
-              entity={"invoice"}
-              dataTableColumns={dataTableColumns}
-            />
+            <RecentTable entity={"lead"} dataTableColumns={leadColumns} />
           </div>
         </Col>
 
@@ -260,10 +278,10 @@ export default function Dashboard() {
           <div className="whiteBox shadow">
             <div className="pad20">
               <h3 style={{ color: "#22075e", marginBottom: 5 }}>
-                Recent Quotes
+                Recent Products
               </h3>
             </div>
-            <RecentTable entity={"quote"} dataTableColumns={dataTableColumns} />
+            <RecentTable entity={"product"} dataTableColumns={productColumns} />
           </div>
         </Col>
       </Row>

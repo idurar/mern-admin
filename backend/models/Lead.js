@@ -6,14 +6,21 @@ const leadSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  expiredDate: {
-    type: String,
-    required: true,
-  },
   client: {
     type: String,
     required: true,
   },
+  phone: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    lowercase: true,
+    trim: true,
+    required: true,
+  },
+
   budget: {
     type: Number,
   },
@@ -22,7 +29,7 @@ const leadSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Draft",
+    default: "pending",
   },
   created: {
     type: Date,

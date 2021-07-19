@@ -5,7 +5,7 @@ const router = express.Router();
 
 const adminController = require("../controllers/adminController");
 const clientController = require("../controllers/clientController");
-const orderController = require("../controllers/orderController");
+
 const leadController = require("../controllers/leadController");
 const productController = require("../controllers/productController");
 
@@ -50,13 +50,5 @@ router
   .delete(catchErrors(productController.delete));
 router.route("/product/search").get(catchErrors(productController.search));
 router.route("/product/list").get(catchErrors(productController.list));
-
-//_____________________________________ API for orders ___________________________
-router.route("/order/create").post(catchErrors(orderController.create));
-router.route("/order/read/:id").get(catchErrors(orderController.read));
-router.route("/order/update/:id").patch(catchErrors(orderController.update));
-router.route("/order/delete/:id").delete(catchErrors(orderController.delete));
-router.route("/order/search").get(catchErrors(orderController.search));
-router.route("/order/list").get(catchErrors(orderController.list));
 
 module.exports = router;

@@ -8,7 +8,7 @@
     "prod": "node ./start.js",
     "start": "nodemon ./start.js --ignore public/",
     "production": "NODE_ENV=production",
-    "setup": "node -e 'require('./setup/load-sample-admin.js')'"
+    "sample": "node ./data/load-sample-admin.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

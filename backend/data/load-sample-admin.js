@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 
+const Admin = require("../models/Admin");
+
 const admins = JSON.parse(fs.readFileSync(__dirname + "/admins.json", "utf-8"));
 
 async function loadData() {
   try {
-    await Item.insertMany(admins);
+    await Admin.insertMany(admins);
     console.log("👍 Done!");
     process.exit();
   } catch (e) {

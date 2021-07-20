@@ -7,9 +7,12 @@ const {
   isValidToken,
   login,
   logout,
-} = require("../controllers/authController ");
+} = require("../controllers/authController");
 
-router.route("/login").post(catchErrors(login));
+const { loginDemo } = require("../controllers/authControllerDemo");
+
+// router.route("/login").post(catchErrors(login));
+router.route("/login").post(catchErrors(loginDemo));
 router.route("/logout").post(isValidToken, catchErrors(logout));
 
 module.exports = router;

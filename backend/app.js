@@ -10,7 +10,7 @@ const authApiRouter = require("./routes/authApi");
 
 const errorHandlers = require("./handlers/errorHandlers");
 
-const { isValidToken } = require("./controllers/authController ");
+const { isValidToken } = require("./controllers/authController");
 
 require("dotenv").config({ path: ".variables.env" });
 
@@ -68,8 +68,8 @@ app.use(function (req, res, next) {
 
 app.use("/api", authApiRouter);
 
-// app.use("/api", isValidToken, apiRouter);
-app.use("/api", apiRouter);
+app.use("/api", isValidToken, apiRouter);
+// app.use("/api", apiRouter);
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);

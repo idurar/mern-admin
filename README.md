@@ -1,4 +1,4 @@
-# Starter Antd Admin (Crud & auth) App based on Mern Stack 
+# Starter Antd Admin (Crud & auth) Mern App (Express.js / React / Redux / MongoDB)
 
 App built for [DigitalOcean MongoDB Hackathon](https://www.digitalocean.com/mongodb-hackathon/)
 

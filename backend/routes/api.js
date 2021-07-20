@@ -11,7 +11,7 @@ const productController = require("../controllers/productController");
 
 //_______________________________ Admin management_______________________________
 
-router.route("/admin/create").post(catchErrors(adminController.read));
+router.route("/admin/create").post(catchErrors(adminController.create));
 router.route("/admin/read/:id").get(catchErrors(adminController.read));
 router.route("/admin/update/:id").patch(catchErrors(adminController.update));
 router.route("/admin/delete/:id").delete(catchErrors(adminController.delete));

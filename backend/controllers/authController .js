@@ -65,7 +65,7 @@ exports.login = async (req, res) => {
     if (!email || !password)
       return res.status(400).json({ msg: "Not all fields have been entered." });
 
-    const admin = await Admin.findOne({ email: email, removed: false });
+    const admin = await Admin.findOne({ email: email });
     // console.log(admin);
     if (!admin)
       return res.status(400).json({
@@ -138,7 +138,7 @@ exports.isValidToken = async (req, res, next) => {
         jwtExpired: true,
       });
 
-    const admin = await Admin.findOne({ _id: verified.id, removed: false });
+    const admin = await Admin.findOne({ _id: verified.id });
     if (!admin)
       return res.status(401).json({
         success: false,

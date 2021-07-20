@@ -2,6 +2,9 @@ const jwt = require("jsonwebtoken");
 
 require("dotenv").config({ path: ".variables.env" });
 
+// for development & production don't use this file (you should remove it) , this is just demo login contoller
+// use authController
+
 exports.loginDemo = async (req, res) => {
   try {
     const { email, password } = req.body;

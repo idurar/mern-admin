@@ -308,13 +308,7 @@ exports.delete = async (req, res) => {
       removed: true,
     };
     // Find the document by id and delete it
-    const result = await Admin.findOneAndUpdate(
-      { _id: req.params.id },
-      { $set: updates },
-      {
-        new: true, // return the new result instead of the old one
-      }
-    ).exec();
+    const result = await Admin.findOneAndDelete({ _id: req.params.id }).exec();
     // If no results found, return document not found
     if (!result) {
       return res.status(404).json({

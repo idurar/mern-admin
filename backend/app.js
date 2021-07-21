@@ -68,8 +68,11 @@ app.use(function (req, res, next) {
 
 app.use("/api", authApiRouter);
 
-app.use("/api", isValidToken, apiRouter);
-// app.use("/api", apiRouter);
+// for development & production don't use this line app.use("/api", apiRouter); , this is just demo login contoller
+app.use("/api", apiRouter);
+
+//uncomment line below // app.use("/api", isValidToken, apiRouter);
+// app.use("/api", isValidToken, apiRouter);
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);

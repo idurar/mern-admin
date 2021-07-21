@@ -6,7 +6,7 @@ import CustomerForm from "@/forms/CustomerForm";
 function Customer() {
   const entity = "client";
   const searchConfig = {
-    displayLabels: ["company"],
+    displayLabels: ["company", "surname", "name"],
     searchFields: "company,surname,name",
     outputValue: "_id",
   };

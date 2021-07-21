@@ -48,13 +48,16 @@ export default function RecentTable({ ...props }) {
     return request.list(entity);
   };
   const { result, isLoading, isSuccess } = useFetch(asyncList);
-
+  const firstFiveItems = () => {
+    if (isSuccess && result) return result.slice(0, 5);
+    return [];
+  };
   return (
     <>
       <Table
         columns={dataTableColumns}
         rowKey={(item) => item._id}
-        dataSource={isSuccess && result}
+        dataSource={isSuccess && firstFiveItems()}
         pagination={false}
         loading={isLoading}
       />

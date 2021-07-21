@@ -57,7 +57,7 @@ function FixHeaderPanel({ config }) {
   );
 }
 
-function CrudModule({ config, createForm, updateForm }) {
+export default function CrudModule({ config, createForm, updateForm }) {
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
@@ -80,5 +80,3 @@ function CrudModule({ config, createForm, updateForm }) {
     </CrudLayout>
   );
 }
-
-export default CrudModule;

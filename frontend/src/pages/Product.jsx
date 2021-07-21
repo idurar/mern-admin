@@ -7,7 +7,7 @@ function Product() {
   const entity = "product";
   const searchConfig = {
     displayLabels: ["productName"],
-    searchFields: "productName,surname,name",
+    searchFields: "productName",
     outputValue: "_id",
   };
 

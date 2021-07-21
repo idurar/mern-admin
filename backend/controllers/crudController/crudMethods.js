@@ -221,10 +221,7 @@ exports.search = async (Model, req, res) => {
   }
 
   try {
-    let results = await Model.find(fields)
-      .where("removed", false)
-      .sort({ name: "asc" })
-      .limit(10);
+    let results = await Model.find(fields).sort({ name: "asc" }).limit(10);
 
     if (results.length >= 1) {
       return res.status(200).json({

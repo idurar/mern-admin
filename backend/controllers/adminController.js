@@ -88,7 +88,6 @@ exports.read = async (req, res) => {
     // Find document by id
     const tmpResult = await Admin.findOne({
       _id: req.params.id,
-      removed: false,
     });
     // If no results found, return document not found
     if (!tmpResult) {

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import {
   SettingOutlined,
+  UserOutlined,
   CustomerServiceOutlined,
   FileTextOutlined,
   FileSyncOutlined,
@@ -38,6 +39,9 @@ function Navigation() {
           </Menu.Item>
           <Menu.Item key="2" icon={<CustomerServiceOutlined />}>
             <Link to="/customer">Customer</Link>
+          </Menu.Item>
+          <Menu.Item key="24" icon={<UserOutlined />}>
+            <Link to="/selectcustomer">Custom Select Customer</Link>
           </Menu.Item>
           <Menu.Item key="21" icon={<FileTextOutlined />}>
             <Link to="/lead" />

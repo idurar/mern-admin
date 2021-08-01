@@ -13,14 +13,18 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
   const inputColorRef = useRef(null);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [tableItemsList, setTableItemsList] = useState([]);
-  const [coloredRow, setColoredRow] = useState([]);
-  const [color, setColor] = useState("");
+  const [coloredRow, setColoredRow] = useState({});
+
   const openColorBox = () => {
     inputColorRef.current.click();
   };
   const handelColorChange = (e) => {
-    setColoredRow([...coloredRow, ...selectedRowKeys]);
-    setColor(e.target.value);
+    const tmpObj = {};
+    const tmpColoredRows = selectedRowKeys.map((x) => {
+      tmpObj[x] = e.target.value;
+    });
+
+    setColoredRow({ ...coloredRow, ...tmpObj });
     setSelectedRowKeys([]);
   };
   function MakeNewColor() {
@@ -43,14 +47,14 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
     );
   }
   let { entity, dataTableColumns, dataTableTitle } = config;
-  const newdataTableColumns = dataTableColumns.map((obj) => ({
+  const newDataTableColumns = dataTableColumns.map((obj) => ({
     ...obj,
     render: (text, row) => {
       return {
         props: {
           style: {
-            background: coloredRow.includes(row._id) ? color : "",
-            color: coloredRow.includes(row._id) ? inverseColor(color) : "",
+            background: coloredRow[row._id] ? coloredRow[row._id] : "",
+            color: coloredRow[row._id] ? inverseColor(coloredRow[row._id]) : "",
           },
         },
         children: text,
@@ -58,15 +62,17 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
     },
   }));
   dataTableColumns = [
-    ...newdataTableColumns,
+    ...newDataTableColumns,
     {
       title: "",
       render: (row) => {
         return {
           props: {
             style: {
-              background: coloredRow.includes(row._id) ? color : "",
-              color: coloredRow.includes(row._id) ? inverseColor(color) : "",
+              background: coloredRow[row._id] ? coloredRow[row._id] : "",
+              color: coloredRow[row._id]
+                ? inverseColor(coloredRow[row._id])
+                : "",
             },
           },
           children: (
@@ -95,21 +101,14 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
   useEffect(() => {
     dispatch(crud.list(entity));
   }, []);
+
   useEffect(() => {
     const listIds = items.map((x) => x._id);
     setTableItemsList(listIds);
   }, [items]);
 
-  useEffect(() => {
-    console.log(
-      "🚀 ~ file: DataTable.jsx ~ line 98 ~ useEffect ~ tableItemsList",
-      tableItemsList
-    );
-  }, [tableItemsList]);
-
-  const [rowId, setRowId] = useState([]);
   const [firstRow, setFirstRow] = useState();
-  const [lastRow, setLastRow] = useState();
+
   const [onSelect, setSelect] = useState(false);
   const onClickRow = (record, rowIndex) => {
     return {
@@ -125,24 +124,18 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
         // }
       },
       onMouseDown: () => {
-        setRowId([record._id]);
         setFirstRow(rowIndex);
-
         setSelectedRowKeys([record._id]);
         setSelect(true);
       },
       onMouseEnter: () => {
         if (onSelect) {
-          setRowId([...rowId, record._id]);
           const selectedRange = tableItemsList.slice(firstRow, rowIndex + 1);
           setSelectedRowKeys(selectedRange);
         }
       },
       onMouseUp: () => {
-        setLastRow(rowIndex);
         setSelect(false);
-
-        // setSelectedRowKeys(rowId);
       },
     };
   };
@@ -151,11 +144,7 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
     return {
       props: {
         style: {
-          background: coloredRow.includes(record._id) ? color : "",
-          color: coloredRow.includes(record._id) ? inverseColor(color) : "",
-          // width: "0px",
-          // minWidth: "0px",
-          // padding: "0px",
+          background: coloredRow[record._id] ? coloredRow[record._id] : "",
         },
       },
       // children: originNode,
@@ -172,7 +161,7 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
     onChange: onSelectChange,
     hideSelectAll: true,
     columnWidth: 0,
-    // checkStrictly: false,
+
     renderCell: handelColorRow,
     selectedRowKeys: selectedRowKeys,
   };

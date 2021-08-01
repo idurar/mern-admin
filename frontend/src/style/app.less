@@ -68,6 +68,14 @@
 .clickRowStyl {
   background: #00b4ed;
 }
+.ant-table * {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+.ant-table-row-selected > td {
+  background: #d8e6df !important;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

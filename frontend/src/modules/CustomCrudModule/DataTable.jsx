@@ -7,20 +7,21 @@ import { crud } from "@/redux/crud/actions";
 import { selectListItems } from "@/redux/crud/selectors";
 
 import uniqueId from "@/utils/uinqueId";
+import inverseColor from "@/utils/inverseColor";
 
 export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
   const inputColorRef = useRef(null);
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
+  const [tableItemsList, setTableItemsList] = useState([]);
   const [coloredRow, setColoredRow] = useState([]);
   const [color, setColor] = useState("");
   const openColorBox = () => {
     inputColorRef.current.click();
   };
   const handelColorChange = (e) => {
-    console.log(e.target.value);
     setColoredRow([...coloredRow, ...selectedRowKeys]);
     setColor(e.target.value);
-    // setColorRows(selectedRowKeys);
+    setSelectedRowKeys([]);
   };
   function MakeNewColor() {
     return (
@@ -28,14 +29,13 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
         <Button onClick={openColorBox}>Make new Color</Button>
         <input
           type="color"
-          focus={true}
           ref={inputColorRef}
           onChange={handelColorChange}
           style={{
             opacity: 0,
             position: "absolute",
             left: 0,
-            top: 0,
+            top: "10px",
             width: "100%",
           }}
         />
@@ -48,7 +48,10 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
     render: (text, row) => {
       return {
         props: {
-          style: { background: coloredRow.includes(row._id) ? color : "" },
+          style: {
+            background: coloredRow.includes(row._id) ? color : "",
+            color: coloredRow.includes(row._id) ? inverseColor(color) : "",
+          },
         },
         children: text,
       };
@@ -61,7 +64,10 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
       render: (row) => {
         return {
           props: {
-            style: { background: coloredRow.includes(row._id) ? color : "" },
+            style: {
+              background: coloredRow.includes(row._id) ? color : "",
+              color: coloredRow.includes(row._id) ? inverseColor(color) : "",
+            },
           },
           children: (
             <Dropdown overlay={DropDownRowMenu({ row })} trigger={["click"]}>
@@ -89,18 +95,56 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
   useEffect(() => {
     dispatch(crud.list(entity));
   }, []);
+  useEffect(() => {
+    const listIds = items.map((x) => x._id);
+    setTableItemsList(listIds);
+  }, [items]);
 
-  // const [rowId, setRowId] = useState("");
-  // const onClickRow = (record, rowIndex) => {
-  //   return {
-  //     onClick: () => {
-  //       setRowId(record._id);
-  //     },
-  //   };
-  // };
-  const setRowClassName = (record) => {
-    // const result = colorRows.includes(record._id) ? "clickRowStyl" : "";
-    return "";
+  useEffect(() => {
+    console.log(
+      "🚀 ~ file: DataTable.jsx ~ line 98 ~ useEffect ~ tableItemsList",
+      tableItemsList
+    );
+  }, [tableItemsList]);
+
+  const [rowId, setRowId] = useState([]);
+  const [firstRow, setFirstRow] = useState();
+  const [lastRow, setLastRow] = useState();
+  const [onSelect, setSelect] = useState(false);
+  const onClickRow = (record, rowIndex) => {
+    return {
+      onClick: () => {
+        // const exist = selectedRowKeys.includes(record._id);
+        // if (exist) {
+        //   let filtered = selectedRowKeys.filter(function (value) {
+        //     return value != record._id;
+        //   });
+        //   setSelectedRowKeys(filtered);
+        // } else {
+        //   setSelectedRowKeys([...selectedRowKeys, record._id]);
+        // }
+      },
+      onMouseDown: () => {
+        setRowId([record._id]);
+        setFirstRow(rowIndex);
+
+        setSelectedRowKeys([record._id]);
+        setSelect(true);
+      },
+      onMouseEnter: () => {
+        if (onSelect) {
+          setRowId([...rowId, record._id]);
+          const selectedRange = tableItemsList.slice(firstRow, rowIndex + 1);
+          setSelectedRowKeys(selectedRange);
+        }
+      },
+      onMouseUp: () => {
+        setLastRow(rowIndex);
+        setSelect(false);
+
+        // setSelectedRowKeys(rowId);
+      },
+    };
   };
 
   const handelColorRow = (checked, record, index, originNode) => {
@@ -108,13 +152,17 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
       props: {
         style: {
           background: coloredRow.includes(record._id) ? color : "",
+          color: coloredRow.includes(record._id) ? inverseColor(color) : "",
+          // width: "0px",
+          // minWidth: "0px",
+          // padding: "0px",
         },
       },
-      children: originNode,
+      // children: originNode,
     };
   };
 
-  const onSelectChange = (selectedKeys) => {
+  const onSelectChange = (selectedKeys, selectedRows) => {
     setSelectedRowKeys(selectedKeys);
     console.log("selectedRowKeys changed: ", selectedRowKeys);
   };
@@ -122,8 +170,11 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
   const rowSelection = {
     selectedRowKeys,
     onChange: onSelectChange,
-    checkStrictly: false,
+    hideSelectAll: true,
+    columnWidth: 0,
+    // checkStrictly: false,
     renderCell: handelColorRow,
+    selectedRowKeys: selectedRowKeys,
   };
 
   return (
@@ -147,8 +198,10 @@ export default function DataTable({ config, DropDownRowMenu, AddNewItem }) {
         columns={dataTableColumns}
         rowKey={(item) => item._id}
         rowSelection={rowSelection}
-        // onRow={onClickRow}
-        rowClassName={setRowClassName}
+        onRow={onClickRow}
+        ellipsis={true}
+        // rowClassName={setRowClassName}
+        size={"small"}
         dataSource={items}
         pagination={pagination}
         loading={listIsLoading}

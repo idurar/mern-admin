@@ -4,7 +4,6 @@
 Don't forget please to ⭐ this repo if you like this Starter Antd Admin!
 ```
 
-App built for [DigitalOcean MongoDB Hackathon](https://www.digitalocean.com/mongodb-hackathon/)
 
 ![starter-antd-admin-crud-auth-mern-crud-auth](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/opp4yj177dizyaosah0o.png)
 
@@ -24,7 +23,7 @@ password : admin123`
 
 ### Backend :
 
-* The backend is built with node.js , [express.js Framework](https://expressjs.com/) ,and [MongoDb Database](https://www.digitalocean.com/products/managed-databases-mongodb/)
+* The backend is built with node.js , [express.js Framework](https://expressjs.com/) ,and MongoDb Database
 * Generic Crud Api (Create / Read / Update / Delete)
 * Admin (User) Management Api
 * Auth by Jwt json web token

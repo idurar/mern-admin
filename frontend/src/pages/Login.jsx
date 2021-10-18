@@ -80,7 +80,7 @@ const LoginPage = () => {
                     <Input
                       prefix={<LockOutlined className="site-form-item-icon" />}
                       type="password"
-                      placeholder="admin123"
+                      placeholder="123456"
                       autoComplete="off"
                     />
                   </Form.Item>

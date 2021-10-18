@@ -1,4 +1,4 @@
-backend/node_modules/
+node_modules/
 frontend/node_modules/
 *.zip
 .DS_Store

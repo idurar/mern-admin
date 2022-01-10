@@ -17,7 +17,20 @@ I build Starter Crm App based on mern stack (Express.js / MongoDb / React / Redu
 `username : admin@demon.com
 password : admin123`
 
+# Setup
 
+1) just create MongoDB Atlas accout database url 
+2) change this file name .variables.env.tmp to  .variables.env
+3) open  .variables.env and paste your MongoDB url here :  DATABASE=your-mongodb-url
+4) npm install
+5) npm setup
+
+## start server
+npm start
+
+## start react app
+cd frontend 
+npm start
 
 ## App Features :
 

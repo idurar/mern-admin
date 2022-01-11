@@ -26,9 +26,11 @@ password : admin123`
 4) npm install
 5) npm setup
 
-## Setup backend
+## Setup frontend
 1) cd frontend 
 2) npm install
+3) change api config to loaclhost in this : src/frontend/src/config/serverApiConfig.js
+ 
 
 ## start server
 1) npm start

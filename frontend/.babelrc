@@ -1,17 +1,14 @@
 {
-    
     "plugins": [
         [
-            "import", {
+            "import",
+            {
                 "libraryName": "antd"
                 // "style": true, // or 'css'
             }
         ]
-        
     ]
 }
-
-
 // {
 //     "presets": [
 //         "@babel/env",

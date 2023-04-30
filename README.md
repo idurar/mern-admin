@@ -60,3 +60,8 @@ password : admin123`
 * Not Found Page
 * Beautiful UI Dashboard
 
+#
+### check advanced open source erp/crm 
+[https://github.com/idurar/idurar-erp-crm](https://github.com/idurar/idurar-erp-crm)
+
+

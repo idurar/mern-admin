@@ -66,6 +66,6 @@ IDURAR is Open Source ERP/CRM (Invoice / Inventory / Accounting / HR) Based on M
 GitHub Repository : [https://github.com/idurar/idurar-erp-crm](https://github.com/idurar/idurar-erp-crm)
 
 
-![Best 7 Open-source projects built with Node.js / React.js](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ja242ld9m9z1c6ia7lu5.png)
+[![Best 7 Open-source projects built with Node.js / React.js](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ja242ld9m9z1c6ia7lu5.png)](https://github.com/idurar/idurar-erp-crm)
 
 

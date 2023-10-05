@@ -3,6 +3,9 @@
 ```
 Don't forget please to ⭐ this repo if you like this Starter Antd Admin!
 ```
+## [Register Now and Get 50% Discount Promo Code : IDURAR50 : Click Here](https://www.eventbrite.com/e/reactjs-online-bootcamp-tickets-731415913687)
+
+![promocode-idurar50](https://github.com/idurar/idurar-erp-crm/assets/136928179/f59037cc-aa5c-4ad8-9263-2b5dbe958c5c)
 
 ## Our Sponsors
 

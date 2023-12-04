@@ -6,7 +6,7 @@
   },
   "scripts": {
     "start": "node ./server.js",
-    "dev": "nodemon ./server.js --ignore public/",
+    "dev": "nodemon -r dotenv/config --experimental-json-modules ./server.js",
     "production": "NODE_ENV=production",
     "setup": "node ./setup/setup.js"
   },

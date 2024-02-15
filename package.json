@@ -5,8 +5,8 @@
     "node": "14.x"
   },
   "scripts": {
-    "start": "node ./server.js",
-    "dev": "nodemon ./server.js --ignore public/",
+    "start": "node server.js",
+    "dev": "nodemon server.js --ignore public/",
     "production": "NODE_ENV=production",
     "setup": "node ./setup/setup.js"
   },

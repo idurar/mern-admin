@@ -29,7 +29,7 @@ Starter Crm App based on mern stack (Express.js / MongoDb / React / Redux / AntD
 
 **Live App Demo** : [https://www.idurarapp.com/demo-mern-admin/](https://www.idurarapp.com/demo-mern-admin/)
 
-`username : admin@demon.com
+`username : admin@demo.com
 password : admin123`
 
 ```

@@ -27,12 +27,9 @@ Don't forget please to ⭐ this repo if you like this Starter Antd Admin!
 
 Starter Crm App based on mern stack (Express.js / MongoDb / React / Redux / AntD) with generic crud and auth , admin management .
 
-**Live App Demo** : [https://www.idurarapp.com/demo-mern-admin/](https://www.idurarapp.com/demo-mern-admin/)
+**Live App Demo** : [https://www.idurarapp.com](https://www.idurarapp.com)
 
-`username : admin@demo.com
-password : admin123`
 
-```
 ## Setup backend
 
 1) just create MongoDB Atlas accout database url 

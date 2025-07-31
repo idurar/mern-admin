@@ -84,5 +84,5 @@ Starter Crm App based on mern stack (Express.js / MongoDb / React / Redux / AntD
 
 **⭐️ Demo Open Source Version** : [https://opensource.idurarapp.com](https://opensource.idurarapp.com)
 <br/>
-**🚀 Cloud Entreprise Version** : [https://cloud.idurarapp.com](https://cloud.idurarapp.com)
+**🚀 Cloud Entreprise Version** : [https://www.idurarapp.com](https://www.idurarapp.com)
 <br/>
